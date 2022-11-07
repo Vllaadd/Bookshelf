@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom";
 import Navigation from "./components/navigation";
 
 const App = () => {
@@ -9,4 +8,6 @@ const App = () => {
     </>
   );
  };
+
+ export default App;
 
