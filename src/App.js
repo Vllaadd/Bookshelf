@@ -1,7 +1,7 @@
 import React from "react";
 import {Routes, Route, Link} from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
     <div>
       <h1>React Router</h1>
@@ -19,6 +19,9 @@ function App() {
   );
 }
 
+const byTitle = (title) => (book) =>
+  book.title.toLowerCase().includes((title || "").toLowerCase());
+
 const Bookshelf = () => {
   const books = [
     {
@@ -30,11 +33,16 @@ const Bookshelf = () => {
       isCompleted: true,
     },
   ];
+  const[title,setTitle]=React.useState("");
+  const handleTitle=(event)=>{
+    setTitle(event.target.value);
+  };
   return(
     <>
     <h2>Bookshelf</h2>
+    <input type="text" value={title} onChange={handleTitle} />
     <ul>
-      {books.map((book) => (
+      {books.filter(byTitle(title)).map((book) => (
         <li key={book.title}>{book.title}</li>
       ))}
     </ul>
