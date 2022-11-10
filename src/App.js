@@ -10,9 +10,7 @@ const App = () => {
   const navigate = useNavigate();
 
   const [books, setBooks] = React.useState([
-    {id:"1", fullName:"Book One"},
-    {id:"2", fullName:"Book Two"},
-    {id:"3", fullName:"Book Three"}
+   "Book One", "Book Two", "Book Three"
   ]);
   const handleRemoveBook = (bookId) => {
     setBooks((state) => state.filter((book) => book.id !== bookId));
@@ -57,9 +55,9 @@ const Home = () =>{
   )
 }
 
-const Books =(books)=>{
+const Books =({books})=>{
   return(
-      <main>
+      <>
           <h2>Books</h2>
           <ul>
               {books.map((book) =>(
@@ -69,7 +67,7 @@ const Books =(books)=>{
               ))}
           </ul>
           <Outlet />
-      </main>
+      </>
   )
 }
 
