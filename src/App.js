@@ -9,7 +9,7 @@ import Book from "./components/book"
 const App = () => {
   const navigate = useNavigate();
 
-  const [books, setBookd] = React.useState([
+  const [books, setBooks] = React.useState([
     {id:"1", fullName:"Book One"},
     {id:"2", fullName:"Book Two"},
     {id:"3", fullName:"Book Three"}
