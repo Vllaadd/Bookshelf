@@ -4,6 +4,7 @@ import {Routes,
         Link,
         Outlet,
         useParams,
+        useSearchParams,
       useNavigate } from "react-router-dom";
 
 const App = () => {
