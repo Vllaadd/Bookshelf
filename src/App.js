@@ -17,13 +17,13 @@ const App = () => {
   ]);
 
   const handleRemoveBook = (bookId) =>{
-    setBooks((state) => state.filter((book) => book.id !==bookId));
+    setBooks((state) => state.filter((book) => book.id !== bookId));
+    navigate("/books");
   };
-  navigate("/books");
+  
 
   return (
     <>
-      <h1>React Router</h1>
       <Navigation />
       <Routes>
         <Route index element={<Home />} />
@@ -34,7 +34,7 @@ const App = () => {
         <Route path="*" element={<NoMatch />}/>
         <Route />
       </Routes>
-    </>
+      </>
   );
 };
 

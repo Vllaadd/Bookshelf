@@ -7,7 +7,7 @@ const Book = () =>{
         <>
         <h2>Book: {bookId}</h2>
         <button type="button" onClick={() => onRemoveBook(bookId)}>Remove</button>
-        <Link to="/book">Back to Books</Link>
+        <Link to="/books">Back to Books</Link>
         </>
     );
 };
