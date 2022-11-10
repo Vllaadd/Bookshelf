@@ -5,10 +5,11 @@ const Books =(books)=>{
             <ul>
                 {books.map((book) =>(
                     <li key={book.id}>
-                        <Link to={`/books/${book.id}`}>{book.fullName</Link>
+                        <Link to={book.id}>{book.fullName}</Link>
                     </li>
                 ))}
             </ul>
+            <Outlet />
         </main>
     )
 }

@@ -1,14 +1,25 @@
-import { Routes, Route } from "react-router-dom";
+import React from "react";
+import {Routes, 
+        Route, } from "react-router-dom";
 import Navigation from "./components/navigation";
 import Home from "./components/home";
 import Books from "./components/books";
+import Book from "./components/book"
 
 const App = () => {
-  const books=[
+  const navigate = useNavigate();
+
+  const [books, setBookd] = React.useState([
     {id:"1", fullName:"Book One"},
     {id:"2", fullName:"Book Two"},
     {id:"3", fullName:"Book Three"}
-  ]
+  ]);
+
+  const handleRemoveBook = (bookId) =>{
+    setBooks((state) => state.filter((book) => book.id !==book.Id));
+  };
+  navigate("/books");
+
   return (
     <>
       <h1>React Router</h1>
@@ -17,7 +28,7 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="books" element={<Books books={books}/>}>
-          <Route path=":bookId" element={<Book />} />
+          <Route path=":bookId" element={<Book onRemoveBook={handleRemoveBook} />} />
         </Route>
         <Route path="*" element={<NoMatch />}/>
         <Route />
@@ -28,7 +39,7 @@ const App = () => {
 
 const NoMatch = () => {
   return (
-    <p>There's nothing here: 404!</p>;
+    <p>There's nothing here: 404!</p>
   )
 }
 
