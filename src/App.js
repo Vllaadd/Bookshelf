@@ -1,6 +1,7 @@
-import React from "react";
+import * as React from "react";
 import {Routes, 
-        Route, } from "react-router-dom";
+        Route,
+      useNavigate } from "react-router-dom";
 import Navigation from "./components/navigation";
 import Home from "./components/home";
 import Books from "./components/books";
@@ -16,7 +17,7 @@ const App = () => {
   ]);
 
   const handleRemoveBook = (bookId) =>{
-    setBooks((state) => state.filter((book) => book.id !==book.Id));
+    setBooks((state) => state.filter((book) => book.id !==bookId));
   };
   navigate("/books");
 
