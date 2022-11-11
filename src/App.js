@@ -5,7 +5,7 @@ import {Routes,
 import Navigation from "./components/navigation";
 import Books from "./components/books";
 import Book from "./components/book";
-import NoMatch from "./components/noMach"
+import NoMatch from "./components/noMatch";
 
 const App = () => {
   const navigate = useNavigate();
@@ -35,14 +35,6 @@ const App = () => {
       </>
   );
 };
-
-const Home = () =>{
-  return (
-      <main>
-          <h2>Home</h2>
-      </main>
-  )
-}
 
 export default App;
 
