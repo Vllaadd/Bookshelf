@@ -26,12 +26,12 @@ const Books =({books})=>{
             <ul>
                 {books
                 .filter((book)=>
-                book.fullName.toLowerCase()
+                book.title.toLowerCase()
                 .includes(searchTerm.toLocaleLowerCase())
                 )
                 .map((book) =>(
                     <li key={book.id}>
-                        <Link to={book.id}>{book.fullName}</Link>
+                        <Link to={book.id}>{book.title}</Link>
                     </li>
                 ))}
             </ul>

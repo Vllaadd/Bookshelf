@@ -11,9 +11,10 @@ const App = () => {
   const navigate = useNavigate();
 
   const [books, setBooks] = React.useState([
-   {id: "1", fullName:"The Flamished Road"},
-   {id: "2", fullName:"The Song of Enchantment"},
-   {id: "3", fullName:"We are clowns"},
+   {id: "1", title:"The Flamished Road"},
+   {id: "2", title:"The Song of Enchantment"},
+   {id: "3", title:"We are clowns"},
+   {id: "4", title:"Cockroaches"},
 
   ]);
   const handleRemoveBook = (bookId) => {
