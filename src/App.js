@@ -18,7 +18,7 @@ const App = () => {
   ]);
   const handleRemoveBook = (bookId) => {
     setBooks((state) => state.filter((book) => book.id !== bookId));
-    navigate("/user");
+    navigate("/book");
   };
   return (
     <>
