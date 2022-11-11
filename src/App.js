@@ -1,11 +1,10 @@
 import * as React from "react";
 import {Routes, 
         Route,
-        Link,
-        Outlet,
-        useParams,
-        useSearchParams,
-      useNavigate } from "react-router-dom";
+        useNavigate } from "react-router-dom";
+import Navigation from "./components/navigation";
+import Books from "./components/books";
+import Book from "./components/book";
 
 const App = () => {
   const navigate = useNavigate();
@@ -36,21 +35,6 @@ const App = () => {
   );
 };
 
-const Navigation = () =>{
-  return(
-    <nav>
-      <Link to="/home">Home</Link>
-      <Link to="/books">Books</Link>
-    </nav>
-  )
-}
-
-const NoMatch = () => {
-  return (
-    <p>There's nothing here: 404!</p>
-  )
-}
-
 const Home = () =>{
   return (
       <main>
@@ -58,53 +42,6 @@ const Home = () =>{
       </main>
   )
 }
-
-const Books =({books})=>{
-  const [searchParams, setSearchParams] = useSearchParams();
-  const searchTerm = searchParams.get("name") || "";
-  const handleSearch = (event) => {
-    const name = event.target.value;
-    if(name){
-      setSearchParams({name: event.target.value});
-    }else{
-      setSearchParams({});
-    }
-  };
-  return(
-      <>
-          <h2>Books</h2>
-          <input
-          type="text"
-          value={searchTerm}
-          onChange={handleSearch}
-          />
-          <ul>
-              {books
-              .filter((book)=>
-              book.fullName.toLowerCase()
-              .includes(searchTerm.toLocaleLowerCase())
-              )
-              .map((book) =>(
-                  <li key={book.id}>
-                      <Link to={book.id}>{book.fullName}</Link>
-                  </li>
-              ))}
-          </ul>
-          <Outlet />
-      </>
-  )
-}
-
-const Book = ({onRemoveBook}) =>{
-  const { bookId } = useParams();
-  return(
-      <>
-      <h2>Book: {bookId}</h2>
-      <button type="button" onClick={() => onRemoveBook(bookId)}>Remove</button>
-      <Link to="/books">Back to Books</Link>
-      </>
-  );
-};
 
 export default App;
 
