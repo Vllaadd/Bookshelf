@@ -3,6 +3,7 @@ import {Routes,
         Route,
         useNavigate } from "react-router-dom";
 import Navigation from "./components/navigation";
+import Home from "./components/home";
 import Books from "./components/books";
 import Book from "./components/book";
 import NoMatch from "./components/noMatch";
